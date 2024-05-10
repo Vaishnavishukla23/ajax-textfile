@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Message from Text File</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("message").innerText = this.responseText;
+                } else if (this.readyState == 4) {
+                    document.getElementById("message").innerText = "Error loading message.";
+                }
+            };
+            xhttp.open("GET", "message.txt", true);
+            xhttp.send();
+        });
+    </script>
+</head>
+<body>
+    <div id="message"></div>
+</body>
+</html>
